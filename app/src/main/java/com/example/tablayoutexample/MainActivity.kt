@@ -1,7 +1,9 @@
 package com.example.tablayoutexample
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -37,10 +39,19 @@ class MainActivity : AppCompatActivity() {
         val viewPagerAdapter: ViewPagerAdapter = ViewPagerAdapter(
             supportFragmentManager, this.lifecycle
         )
+
         //add fragments and set the adapter
-        viewPagerAdapter.addFragment(homeFragment, "")
-        viewPagerAdapter.addFragment(settingsFragment, "")
-        viewPagerAdapter.addFragment(chatsFragment, "")
+
+        //from these lines
+//        viewPagerAdapter.addFragment(homeFragment, "")
+//        viewPagerAdapter.addFragment(settingsFragment, "")
+//        viewPagerAdapter.addFragment(chatsFragment, "")
+
+        //changed to these lines:
+        //add fragments and set the adapter
+        viewPagerAdapter.addFragment(homeFragment)
+        viewPagerAdapter.addFragment(settingsFragment)
+        viewPagerAdapter.addFragment(chatsFragment)
         viewPager.adapter = viewPagerAdapter
 
         //set the icons
@@ -51,8 +62,15 @@ class MainActivity : AppCompatActivity() {
 
         //added in this position, because the app crashes if this portion is in the upper side
 //        tabLayout.setupWithViewPager(viewPager)
+        val titleList = listOf("Home", "Settings", "")
+        val iconList = listOf(
+            AppCompatResources.getDrawable(this, R.drawable.android),
+            AppCompatResources.getDrawable(this, R.drawable.google_play),
+            AppCompatResources.getDrawable(this, R.drawable.heart),
+        )
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = "OBJECT ${(position + 1)}"
+            tab.text = titleList[position]
+            tab.icon = iconList[position]
         }.attach()
 
         //set the badge
@@ -63,13 +81,23 @@ class MainActivity : AppCompatActivity() {
 
     private inner class ViewPagerAdapter(fm: FragmentManager, lifeCycle: Lifecycle) :
         FragmentStateAdapter(fm, lifeCycle) {
+
+        // From these lines
+//        private val fragments: MutableList<Fragment> = ArrayList()
+//        private val fragmentTitles: MutableList<String> = ArrayList()
+//
+//        //add fragment to the viewpager
+//        fun addFragment(fragment: Fragment?, title: String) {
+//            fragments.add(fragment!!)
+//            fragmentTitles.add(title)
+//        }
+
+        //changed to these lines:
         private val fragments: MutableList<Fragment> = ArrayList()
-        private val fragmentTitles: MutableList<String> = ArrayList()
 
         //add fragment to the viewpager
-        fun addFragment(fragment: Fragment?, title: String) {
+        fun addFragment(fragment: Fragment?) {
             fragments.add(fragment!!)
-            fragmentTitles.add(title)
         }
 
 //        override fun getItem(position: Int): Fragment {

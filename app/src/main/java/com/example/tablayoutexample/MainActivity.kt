@@ -35,33 +35,16 @@ class MainActivity : AppCompatActivity() {
         chatsFragment = ChatsFragment()
 
         //create viewpager adapter
-        //here we will create inner class for adapter
         val viewPagerAdapter: ViewPagerAdapter = ViewPagerAdapter(
             supportFragmentManager, this.lifecycle
         )
 
-        //add fragments and set the adapter
-
-        //from these lines
-//        viewPagerAdapter.addFragment(homeFragment, "")
-//        viewPagerAdapter.addFragment(settingsFragment, "")
-//        viewPagerAdapter.addFragment(chatsFragment, "")
-
-        //changed to these lines:
         //add fragments and set the adapter
         viewPagerAdapter.addFragment(homeFragment)
         viewPagerAdapter.addFragment(settingsFragment)
         viewPagerAdapter.addFragment(chatsFragment)
         viewPager.adapter = viewPagerAdapter
 
-        //set the icons
-        tabLayout.getTabAt(0)?.setIcon(R.drawable.android)
-        tabLayout.getTabAt(1)?.setIcon(R.drawable.google_play)
-        tabLayout.getTabAt(2)?.setIcon(R.drawable.heart)
-
-
-        //added in this position, because the app crashes if this portion is in the upper side
-//        tabLayout.setupWithViewPager(viewPager)
         val titleList = listOf("Home", "Settings", "")
         val iconList = listOf(
             AppCompatResources.getDrawable(this, R.drawable.android),
@@ -81,37 +64,12 @@ class MainActivity : AppCompatActivity() {
 
     private inner class ViewPagerAdapter(fm: FragmentManager, lifeCycle: Lifecycle) :
         FragmentStateAdapter(fm, lifeCycle) {
-
-        // From these lines
-//        private val fragments: MutableList<Fragment> = ArrayList()
-//        private val fragmentTitles: MutableList<String> = ArrayList()
-//
-//        //add fragment to the viewpager
-//        fun addFragment(fragment: Fragment?, title: String) {
-//            fragments.add(fragment!!)
-//            fragmentTitles.add(title)
-//        }
-
-        //changed to these lines:
         private val fragments: MutableList<Fragment> = ArrayList()
 
         //add fragment to the viewpager
         fun addFragment(fragment: Fragment?) {
             fragments.add(fragment!!)
         }
-
-//        override fun getItem(position: Int): Fragment {
-//            return fragments[position]
-//        }
-//
-//        override fun getCount(): Int {
-//            return fragments.size
-//        }
-//
-//        //to setup title of the tab layout
-//        override fun getPageTitle(position: Int): CharSequence? {
-//            return fragmentTitles[position]
-//        }
 
         override fun getItemCount(): Int {
             return fragments.size

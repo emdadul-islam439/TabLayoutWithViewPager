@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/activity_bottom_nav_with_tab.xml" value="0.22826086956521738" />
+        <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/activity_default_bottom_nav.xml" value="0.11458333333333333" />
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/activity_main.xml" value="0.22395833333333334" />
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/exaxmple_card.xml" value="0.22826086956521738" />
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/fragment_chats.xml" value="0.22826086956521738" />
@@ -11,6 +12,7 @@
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/fragment_left.xml" value="0.22826086956521738" />
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/fragment_right.xml" value="0.22826086956521738" />
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/layout/fragment_settings.xml" value="0.22826086956521738" />
+        <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/01_Flutter/00_Projects/TabLayoutExample/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23802083333333332" />
       </map>
     </option>
